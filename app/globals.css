@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-background font-sans text-ink;
+  }
+  ::selection {
+    @apply bg-primary-soft text-primary-dark;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-primary-ring ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-hairline bg-surface shadow-card;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-150 disabled:cursor-not-allowed disabled:opacity-55;
+  }
+  .btn-primary {
+    @apply btn bg-primary text-white shadow-card hover:bg-primary-dark active:translate-y-px;
+  }
+  .btn-secondary {
+    @apply btn border border-hairline bg-surface text-ink hover:border-primary/30 hover:bg-primary-soft/40;
+  }
+  .btn-ghost {
+    @apply btn text-muted hover:bg-primary-soft/60 hover:text-primary;
+  }
+  .label {
+    @apply mb-1.5 block text-[13px] font-semibold text-ink;
+  }
+  .input {
+    @apply w-full rounded-xl border border-hairline bg-surface px-3.5 py-2.5 text-[15px] text-ink placeholder:text-faint transition-colors focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary-soft;
+  }
+  .eyebrow {
+    @apply text-[11px] font-semibold uppercase tracking-[0.14em] text-muted;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full border border-hairline bg-surface px-2.5 py-0.5 text-xs font-medium text-muted;
+  }
+  .skeleton {
+    @apply rounded-lg bg-[linear-gradient(90deg,#EEF2F6_0%,#F7F9FB_50%,#EEF2F6_100%)] bg-[length:200%_100%] animate-shimmer;
+  }
+}
+
+@layer utilities {
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+}
